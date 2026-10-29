@@ -1,0 +1,373 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font:
+    14px/1.5 "Segoe UI",
+    sans-serif;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+.button {
+  cursor: pointer;
+  padding: 9px 13px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--card);
+  color: var(--text);
+  display: inline-block;
+}
+button:hover {
+  border-color: #54b8ac;
+}
+input,
+select,
+textarea {
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  max-width: 100%;
+}
+textarea {
+  min-height: 80px;
+}
+h1,
+h2,
+h3 {
+  margin: 8px 0 16px;
+}
+h1 {
+  font-size: 26px;
+}
+small {
+  color: var(--muted);
+}
+.app {
+  --bg: #10171e;
+  --card: #1a242e;
+  --text: #e5edf4;
+  --muted: #9cabb9;
+  --line: #30404f;
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+.app[data-theme="light"] {
+  --bg: #f1f5f8;
+  --card: white;
+  --text: #203140;
+  --muted: #647786;
+  --line: #d1dce5;
+}
+@media (prefers-color-scheme: light) {
+  .app[data-theme="system"] {
+    --bg: #f1f5f8;
+    --card: white;
+    --text: #203140;
+    --muted: #647786;
+    --line: #d1dce5;
+  }
+}
+aside {
+  width: 220px;
+  flex-shrink: 0;
+  padding: 25px 18px;
+  background: var(--card);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+aside > small {
+  margin-bottom: 28px;
+}
+aside button {
+  text-align: left;
+}
+.active {
+  background: #327d75;
+  color: white;
+}
+footer {
+  margin-top: auto;
+  display: grid;
+  gap: 8px;
+  padding-top: 30px;
+}
+footer p {
+  font-size: 12px;
+}
+main {
+  padding: 26px;
+  flex: 1;
+  min-width: 0;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+header small {
+  letter-spacing: 2px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.stats article,
+.grid article,
+main > article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+.chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  margin: 6px 0;
+}
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.toolbar span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.canvas {
+  height: calc(100vh - 310px);
+  min-height: 450px;
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.map-switch { display: flex; align-items: center; gap: 10px; margin: 0; }
+.map-switch > select { width: auto; min-width: 180px; }
+.map-notice { color: var(--muted); margin: 0 0 12px; }
+.canvas:focus { outline: 2px solid #54b8ac; outline-offset: 2px; }
+.react-flow__node.selected { box-shadow: 0 0 0 3px #54b8ac80; }
+.react-flow__node {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  width: 205px !important;
+  border-radius: 9px !important;
+}
+.react-flow__node strong,
+.react-flow__node small {
+  display: block;
+}
+.react-flow__edge-text {
+  fill: #243747;
+}
+.react-flow__handle {
+  width: 13px;
+  height: 13px;
+  background: #54b8ac;
+  border: 2px solid var(--card);
+}
+.inspector {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 290px;
+  max-height: 95%;
+  overflow: auto;
+  background: var(--card);
+  padding: 18px;
+  box-shadow: 0 10px 40px #0005;
+  z-index: 5;
+}
+.inspector input,
+.inspector textarea,
+.inspector select {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+.danger {
+  color: #e87676;
+}
+.board-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  padding: 3px;
+}
+.task-type-legend,
+.task-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.task-type-legend { margin-bottom: 14px; }
+.task-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 2px 7px;
+  font-size: 12px;
+  color: var(--text);
+}
+.task-color-dot,
+.task-personal-marker {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.task-personal-marker { margin-left: auto; border: 1px solid var(--line); }
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(210px, 1fr));
+  gap: 12px;
+  align-items: stretch;
+  min-height: max(560px, calc(100vh - 240px));
+  min-width: 1100px;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  background: var(--card);
+  border-radius: 10px;
+  padding: 14px 12px 48px;
+}
+.column h3 {
+  font-size: 14px;
+}
+.column article {
+  flex: 0 0 auto;
+  min-height: 115px;
+  overflow-wrap: anywhere;
+  background: var(--bg);
+  border-radius: 7px;
+  padding: 12px;
+  margin: 12px 0;
+  position: relative;
+}
+.column small {
+  font-size: 11px;
+}
+.column p {
+  font-size: 11px;
+  color: var(--muted);
+}
+.column .column-drop-hint {
+  margin-top: auto;
+  padding-top: 20px;
+  text-align: center;
+  pointer-events: none;
+}
+.card-title {
+  border: 0;
+  text-align: left;
+  padding: 8px 0;
+  background: transparent;
+  display: block;
+}
+.handle {
+  font-size: 11px;
+  touch-action: none;
+  padding: 3px;
+  background: transparent;
+}
+.over {
+  outline: 2px solid #54b8ac;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  background: var(--card);
+  padding: 26px;
+  width: 650px;
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: 14px;
+}
+label {
+  display: block;
+  margin: 9px 0;
+}
+label > input:not([type="checkbox"]),
+label > textarea,
+label > select {
+  display: block;
+  width: 100%;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.check button {
+  margin-left: auto;
+  padding: 2px 8px;
+}
+.node-list {
+  max-height: 180px;
+  overflow: auto;
+}
+.modal .grid {
+  gap: 10px;
+}
+.modal .toolbar {
+  margin-top: 20px;
+}
+@media (max-width: 1200px) {
+  aside {
+    width: 180px;
+    padding: 20px 12px;
+  }
+  main {
+    padding: 18px;
+  }
+  .stats {
+    gap: 10px;
+  }
+}

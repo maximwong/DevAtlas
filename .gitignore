@@ -1,0 +1,16 @@
+node_modules/
+dist/
+release/
+coverage/
+*.log
+
+# Local workspace data and credentials
+.env
+.env.*
+!.env.example
+automation.json
+workspace.json
+workspace.backup.json
+*.asar
+*.pem
+*.key
